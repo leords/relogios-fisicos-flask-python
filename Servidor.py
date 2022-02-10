@@ -18,11 +18,12 @@ def obter_relogio():
     return jsonify({'tempoRecebido': tempoRecebido})
 
 
-## Pegando o <T2> (horario que saiu a msg) e adicionando na array[tempoRecebido] e retornando a própria array para o cliente!
+## Pegando o <T2> (horario que saiu a msg) e adicionando na lista[tempoRecebido] e retornando a própria lista para o cliente!
 ## array qual já foi armazenada <T1>, <T2>, <T3>
 @app.route('/enviar-relogio', methods=['GET'])
 def att_relogio():
     
+    # random para criar a defasagem!
     numberRambom = random.randrange(5, 10) 
 
     # Gerando o <t2>
@@ -56,7 +57,7 @@ def att_relogio():
 
     tempoRecebido.append(params)
 
-    #retornando a array 'tempoRecebido' para cliente com <T1> <T2> <T3>
+    #retornando a array 'tempoRecebido' para cliente com <T0> <T1> <T2>
     return jsonify({
         'tempoRecebido': tempoRecebido
         })
@@ -76,6 +77,7 @@ def receber_hora():
         'segundo': request.json.get('segundo', "")
     }
 
+    # salvando na lista tempoRecebido!
     tempoRecebido.append(tempo)
 
     # Agora pegando o tempo <T1> //horario em que chegou o T0 

@@ -4,6 +4,7 @@ import requests
  
 def main():
 
+    # random para defasagem
     numberRambom = random.randrange(5, 10) 
 
     # Pegando o datetime atual da maquina
@@ -17,7 +18,7 @@ def main():
     # Setando na variavel Timedelta apenas com -5 segundos
     horaDefasagem = timedelta(seconds=-numberRambom)
 
-    # **** TimeDelta permite calcular a diferenca entre dois horario!!!! *****
+    # **** TimeDelta permite calcular a diferença entre dois horario!!!! *****
 
     #somando as duas datas (certa e com defasagem).
     horasSomadas = str(horaCerta+horaDefasagem)
@@ -85,9 +86,11 @@ def main():
     defasagem = (M1 + M2)//2
     print("\nDefasagem:", defasagem)
 
+    #horario atual!
     T4 = timedelta(hours = horarioAtual.hour, minutes = horarioAtual.minute, seconds = horarioAtual.second, microseconds=0)
     print("\nTempo Atual:", T4)
 
+    #horario ajustado!
     T4 = T4 + defasagem
     print("\nTempo Atual Ajustado:", T4)
 
